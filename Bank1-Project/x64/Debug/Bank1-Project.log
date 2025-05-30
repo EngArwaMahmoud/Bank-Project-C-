@@ -1,0 +1,8 @@
+﻿  Bank1-Project.cpp
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(37,28): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(620,17): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(639,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(394,1): warning C4715: 'UpdateAccountNumber': not all control paths return a value
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(335,1): warning C4715: 'DeleteAccountNumber': not all control paths return a value
+E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(648,1): warning C4715: 'DepositBalanceToClientByAccountNumber': not all control paths return a value
+  Bank1-Project.vcxproj -> E:\Faculty of Engineering (TU)\OneDrive - Faculty Of Engineering (Tanta University)\C++\Algotithm-7\Bank1-Project\x64\Debug\Bank1-Project.exe
