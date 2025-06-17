@@ -1,0 +1,42 @@
+# Ignore build results
+/x64/
+Debug/
+Release/
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.log
+*.tlog
+*.idb
+*.ipdb
+*.iobj
+*.pch
+*.sdf
+*.cache
+*.db
+*.VC.db
+*.VC.opendb
+*.vs/
+# Ignore user-specific files
+*.user
+*.suo
+*.vcxproj.user
+*.ncb
+*.aps
+*.opendb
+
+# Ignore Visual Studio workspace
+.vscode/
+.idea/
+*.code-workspace
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.swp
+.~
+
+# Ignore compiled folders
+/bin/
+/obj/
