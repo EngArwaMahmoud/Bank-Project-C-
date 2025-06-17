@@ -1,0 +1,8 @@
+﻿  Bank1-Project.cpp
+E:\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(78,28): warning C4267: '=': conversion from 'size_t' to 'short', possible loss of data
+E:\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(427,9): error C2561: 'UpdateAccountNumber': function must return a value
+      E:\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(421,6):
+      see declaration of 'UpdateAccountNumber'
+  
+E:\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(704,17): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+E:\C++\Algotithm-7\Bank1-Project\Bank1-Project\Bank1-Project.cpp(723,47): warning C4244: '=': conversion from 'double' to 'int', possible loss of data

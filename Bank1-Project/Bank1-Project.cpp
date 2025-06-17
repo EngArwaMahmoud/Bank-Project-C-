@@ -15,7 +15,7 @@ enum enTransactionMenue { DepositBalance = 1, Withdraw = 2, TotalBalance = 3, Ma
 
 enum enUserMenue { ShowUsers = 1, AddUser = 2, DeleteUser = 3, UpdateUser = 4, FindUser = 5, MainMenu = 6 };
 
-enum enMainMenuePermissions{ eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64 };
+enum enMainMenuePermissions { eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4, pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64 };
 
 
 struct stData {
@@ -61,10 +61,10 @@ bool CheckPermission(enMainMenuePermissions Permission)
 
 void ShowAccessDeniedMessage()
 {
-	cout << "\n\n====================================\n";
-	cout << "\n\nAccess Denied! You do not have permission to perform this action.\n";
-	cout << "Please contact the administrator if you believe this is an error.\n";
-	cout << "\n====================================\n";
+    cout << "\n\n====================================\n";
+    cout << "\n\nAccess Denied! You do not have permission to perform this action.\n";
+    cout << "Please contact the administrator if you believe this is an error.\n";
+    cout << "\n====================================\n";
 }
 // Show Client List
 
@@ -142,7 +142,7 @@ void PrintData(stData Data)
 
 void PrintAllClientsData(vector <stData> vClients)
 {
-
+ 
     vector<stData>vClient = LoadRecordFromFile(ClientsFile);
 
     cout << "\n\t\t\t\t\tClient List (" << vClients.size() << ")Client(s).";
@@ -347,7 +347,6 @@ vector <stData> SaveAccounts(string File, vector<stData> vClient)
 
 bool DeleteAccountNumber(string AccountNumber, vector <stData>& vClient)
 {
-
     stData Client;
     char answer = 'y';
 
@@ -399,6 +398,7 @@ stData UpdateAccountData(string AccountNumber)
     return Data;
 }
 
+
 bool UpdateAccountNumber(string AccountNumber, vector <stData>& vClient)
 {
 
@@ -434,7 +434,6 @@ bool UpdateAccountNumber(string AccountNumber, vector <stData>& vClient)
         cout << "\nClient with Account Number (" << AccountNumber << ") is Not Found!";
         return false;
     }
-	return false;
 }
 
 // Find Client
@@ -495,8 +494,9 @@ void ShowDeleteNewClientsScreen()
     {
         ShowAccessDeniedMessage();
         GoBackToMainMenue();
-        return;
+        return ;
     }
+
 
     vector<stData>vClient = LoadRecordFromFile(ClientsFile);
 
@@ -516,7 +516,6 @@ void ShowAddNewClientsScreen()
         return;
     }
 
-
     cout << "---------------------------\n\n";
     cout << "Add Client Screen \n\n";
     cout << "---------------------------\n\n";
@@ -531,6 +530,7 @@ void ShowAllNewClientsScreen()
         GoBackToMainMenue();
         return;
     }
+
 
     vector<stData>vClient = LoadRecordFromFile(ClientsFile);
 
@@ -838,12 +838,12 @@ void ShowTransactionAnswer(enTransactionMenue TrChoose)
 
 void TransactionMenue()
 {
-	if (!CheckPermission(enMainMenuePermissions::pTranactions))
-	{
-		ShowAccessDeniedMessage();
-		GoBackToMainMenue();
-		return;
-	}
+    if (!CheckPermission(enMainMenuePermissions::pTranactions))
+    {
+        ShowAccessDeniedMessage();
+        GoBackToMainMenue();
+        return;
+    }
 
     cout << "====================================\n";
     cout << "\nTransaction Menu Screen\n";
@@ -869,7 +869,7 @@ stUser ConvertLineDataToRecordUser(string Line, string Seperator = "#//#")
 
     User.UserName = vUserData[0];
     User.Password = vUserData[1];
-    User.permission =stoi (vUserData[2]);
+    User.permission = stoi(vUserData[2]);
 
     return User;
 }
@@ -982,12 +982,12 @@ int ReadPermissionToSet()
     char Answer = 'n';
     int permission = 0;
 
-	cout << "\nDo you want to give access to all permissions? y/n?";
-	cin >> Answer;
-	if (Answer == 'y' || Answer == 'Y')
-	{
-		return enMainMenuePermissions::eAll; // All permissions
-	}
+    cout << "\nDo you want to give access to all permissions? y/n?";
+    cin >> Answer;
+    if (Answer == 'y' || Answer == 'Y')
+    {
+        return enMainMenuePermissions::eAll; // All permissions
+    }
 
     cout << "\n\nDo you want to give access to: \n";
 
@@ -1060,16 +1060,16 @@ stUser AddOneUser()
     cout << "Enter Password? ";
     getline(cin, User.Password);
 
-	User.permission = ReadPermissionToSet();
+    User.permission = ReadPermissionToSet();
 
-	return User;
+    return User;
 }
 
 void AddNewUser()
 {
-	stUser User;
-	User = AddOneUser();
-	AddDataUserToFile(UserFile, ConvertRecordToLineUser(User));
+    stUser User;
+    User = AddOneUser();
+    AddDataUserToFile(UserFile, ConvertRecordToLineUser(User));
 }
 
 void AddUsers()
@@ -1115,22 +1115,9 @@ void PrintUserCard(stUser User)
     cout << "\n--------------------------------\n";
 }
 
-bool FindUserBuyUserName(string UserName, vector <stUser> vUser, stUser& User)
+bool FindClientByUserName(string UserName, string Password, stUser& User)
 {
-	for (stUser U : vUser)
-	{
-		if (U.UserName == UserName)
-		{
-			User = U;
-			return true;
-		}
-	}
-	return false;
-}
-
-bool FindUserByUserNameandPassword(string UserName, string Password, stUser& User)
-{
-	vector <stUser> vUser = LoadDataFromFileUser(UserFile);
+    vector <stUser> vUser = LoadDataFromFileUser(UserFile);
 
     for (stUser U : vUser)
     {
@@ -1191,7 +1178,7 @@ vector <stUser> SaveUsers(string File, vector<stUser> vUser)
     return vUser;
 }
 
-bool DeleteUserName(string UserName, vector <stUser>& vUser)
+bool DeleteUserName(string UserName, string Password, vector <stUser>& vUser)
 {
     stUser User;
     char answer = 'y';
@@ -1202,7 +1189,7 @@ bool DeleteUserName(string UserName, vector <stUser>& vUser)
         return false;
     }
 
-    if (FindUserBuyUserName(UserName, vUser, User))
+    if (FindClientByUserName(UserName, Password, User))
     {
 
         PrintUserCard(User);
@@ -1235,7 +1222,7 @@ void ShowDeleteScreen()
     cout << "---------------------------\n\n";
     cout << "Deleted User Screen \n\n";
     cout << "---------------------------\n\n";
-    DeleteUserName(SearchUserName(),vUser);
+    DeleteUserName(SearchUserName(), user.Password, vUser);
 }
 
 // Update User
@@ -1251,12 +1238,12 @@ stUser UpdatePassword(string UserName)
     return User;
 }
 
-bool UpdatePass(string UserName, vector<stUser> vUser)
+bool UpdatePass(string UserName, string password, vector<stUser> vUser)
 {
     stUser User;
     char answer = 'y';
 
-    if (FindUserBuyUserName(UserName, vUser, User))
+    if (FindClientByUserName(UserName, password, User))
     {
 
         PrintUserCard(User);
@@ -1297,7 +1284,7 @@ void ShowUpdateUserScreen() {
     cout << "Update User Screen \n\n";
     cout << "---------------------------\n\n";
 
-    UpdatePass(SearchUserName(),vUser);
+    UpdatePass(SearchUserName(), user.Password, vUser);
 }
 
 // Find user
@@ -1307,7 +1294,7 @@ void FindUsername()
     string UserName = SearchUserName();
     stUser User;
 
-    if (FindUserBuyUserName(UserName,vuser, User))
+    if (FindClientByUserName(UserName, User.Password, User))
     {
         PrintUserCard(User);
     }
@@ -1389,12 +1376,12 @@ void ShowUserAnswer(enUserMenue USChoose)
 
 void ManageUsersMainMenue()
 {
-	if (!CheckPermission(enMainMenuePermissions::pManageUsers))
-	{
-		ShowAccessDeniedMessage();
-		GoBackToMainMenue();
-		return;
-	}
+    if (!CheckPermission(enMainMenuePermissions::pManageUsers))
+    {
+        ShowAccessDeniedMessage();
+        GoBackToMainMenue();
+        return;
+    }
 
     cout << "====================================\n";
     cout << "\tManage Users Screen\n";
@@ -1411,17 +1398,17 @@ void ManageUsersMainMenue()
 
 bool LoadUserInfo(string Username, string Password)
 {
-	if (FindUserByUserNameandPassword(Username , Password , CurrentUser))
-		return true;
+    if (FindClientByUserName(Username, Password, CurrentUser))
+        return true;
     else
-		return false;
+        return false;
 }
 
 void LoginScreen()
 {
 
     bool LoginFailed = false;
-	string Username, Password;
+    string Username, Password;
 
     do
     {
@@ -1431,10 +1418,10 @@ void LoginScreen()
         cout << "\tLogin Screen\n";
         cout << "====================================\n\n";
 
-		if (LoginFailed)
-		{
-			cout << "\nInvalid username/password. Please try again.\n";
-		}
+        if (LoginFailed)
+        {
+            cout << "\nInvalid username/password. Please try again.\n";
+        }
 
         cout << "\nEnter User Name? ";
         cin >> Username;
@@ -1442,7 +1429,7 @@ void LoginScreen()
         cout << "Enter Password? ";
         cin >> Password;
 
-		LoginFailed = !LoadUserInfo( Username,  Password);
+        LoginFailed = !LoadUserInfo(Username, Password);
 
     } while (LoginFailed);
 

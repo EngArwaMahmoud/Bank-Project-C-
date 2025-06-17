@@ -1,22 +1,42 @@
+<<<<<<< HEAD
 # Ignore build results
 /x64/
 Debug/
 Release/
+=======
+# Visual Studio build files
+.vs/
+>>>>>>> 63f7d43d259e01d70eaf140d23302252a9f1616f
 *.obj
 *.exe
 *.pdb
 *.ilk
 *.log
+<<<<<<< HEAD
 *.tlog
 *.idb
 *.ipdb
 *.iobj
+=======
+*.user
+*.suo
+*.vcxproj.user
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.tlog
+*.idb
+*.iobj
+*.ipdb
+>>>>>>> 63f7d43d259e01d70eaf140d23302252a9f1616f
 *.pch
 *.sdf
 *.cache
 *.db
 *.VC.db
 *.VC.opendb
+<<<<<<< HEAD
 *.vs/
 # Ignore user-specific files
 *.user
@@ -40,3 +60,8 @@ Release/
 # Ignore compiled folders
 /bin/
 /obj/
+=======
+Debug/
+Release/
+x64/
+>>>>>>> 63f7d43d259e01d70eaf140d23302252a9f1616f
